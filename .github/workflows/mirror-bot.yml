@@ -32,6 +32,7 @@ jobs:
 
       - name: Compile The Mirroring Docker Container
         run: |
+          export config_URL=${{ secrets.config_URL }}
           cd source || exit 1
           pip3 install -r requirements.txt
           docker container prune --force || true

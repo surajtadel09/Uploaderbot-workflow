@@ -34,7 +34,6 @@ jobs:
         run: |
           export config_URL=${{ secrets.config_URL }}
           cd source || exit 1
-          pip3 install -r requirements.txt
           docker container prune --force || true
           docker build . --rm --force-rm --compress --no-cache=true --pull --file Dockerfile -t mirror-bot
           docker image ls
